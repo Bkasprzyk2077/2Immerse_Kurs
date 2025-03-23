@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqju4xj75vmp"
-path="res://.godot/imported/Skeleton Idle.png-9fdec1374f6918c4db8d3c9f65d11dbf.ctex"
+uid="uid://cqm1w0xd2v17u"
+path="res://.godot/imported/DEFEND.png-450801fcb1be2d8feef3858a4a0d2864.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/skeleton/Skeleton Idle.png"
-dest_files=["res://.godot/imported/Skeleton Idle.png-9fdec1374f6918c4db8d3c9f65d11dbf.ctex"]
+source_file="res://assets/knight/DEFEND.png"
+dest_files=["res://.godot/imported/DEFEND.png-450801fcb1be2d8feef3858a4a0d2864.ctex"]
 
 [params]
 

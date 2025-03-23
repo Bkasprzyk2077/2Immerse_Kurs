@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blh5w8cx0arqp"
-path="res://.godot/imported/Warrior_Sheet-Effect.png-6c8c5ec91c6241d03683ed2bfb1a8597.ctex"
+uid="uid://cq10sojk05rv"
+path="res://.godot/imported/ATTACK 1.png-2d085de66dbe86a0d529e654d4f73607.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/Warrior_Sheet-Effect.png"
-dest_files=["res://.godot/imported/Warrior_Sheet-Effect.png-6c8c5ec91c6241d03683ed2bfb1a8597.ctex"]
+source_file="res://assets/knight/ATTACK 1.png"
+dest_files=["res://.godot/imported/ATTACK 1.png-2d085de66dbe86a0d529e654d4f73607.ctex"]
 
 [params]
 
