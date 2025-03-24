@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://p4yaus6ilq1x"]
+[gd_scene load_steps=13 format=4 uid="uid://p4yaus6ilq1x"]
 
 [ext_resource type="Texture2D" uid="uid://dlnqpd2tk1jvs" path="res://assets/enviro/tiles/Terrain (32x32).png" id="1_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://te27lbhbk8vy" path="res://scenes/player/player.tscn" id="2_2vj2h"]
+[ext_resource type="PackedScene" uid="uid://ckrc0bsv4g2y2" path="res://scenes/trees/tree_back.tscn" id="2_rssyh"]
 [ext_resource type="Texture2D" uid="uid://cpu2jmr7j8kww" path="res://assets/enviro/backgrounds/Additional Sky.png" id="3_b6bv0"]
 [ext_resource type="Texture2D" uid="uid://c7x4xb1x1rrp8" path="res://assets/enviro/backgrounds/Additional Water.png" id="3_u81e1"]
 [ext_resource type="Texture2D" uid="uid://d0ugy6lvu2l33" path="res://assets/enviro/backgrounds/BG Image.png" id="3_y0acb"]
 [ext_resource type="Texture2D" uid="uid://c6embun731yyt" path="res://assets/enviro/backgrounds/Big Clouds.png" id="4_j4d2a"]
+[ext_resource type="PackedScene" uid="uid://bs0csr60c00fi" path="res://scenes/trees/tree_front.tscn" id="5_hwp66"]
+[ext_resource type="Texture2D" uid="uid://du18iwg76vvp7" path="res://assets/enviro/backgrounds/Water Reflect Big 01.png" id="6_vkq25"]
 [ext_resource type="PackedScene" uid="uid://dygwskgsvb6vo" path="res://scenes/crab/crab.tscn" id="7_ubwgw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0acb"]
@@ -142,6 +145,38 @@ position = Vector2(87, 131)
 tile_map_data = PackedByteArray("AAAFAAUAAAACAAIAAAAFAAQAAAABAAEAAAAFAAMAAAABAAEAAAAFAAIAAAABAAEAAAAFAAEAAAABAAEAAAAFAAAAAAABAAAAAAAEAAUAAAABAAIAAAAEAAQAAAABAAEAAAAEAAMAAAABAAEAAAAEAAIAAAABAAEAAAAEAAEAAAABAAEAAAAEAAAAAAABAAAAAAADAAUAAAABAAIAAAADAAQAAAABAAEAAAADAAMAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAADAAAAAAABAAAAAAACAAUAAAABAAIAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAACAAIAAAABAAEAAAACAAEAAAABAAEAAAACAAAAAAABAAAAAAABAAUAAAABAAIAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAEAAAABAAEAAAABAAAAAAABAAAAAAAAAAUAAAABAAIAAAAAAAQAAAABAAEAAAAAAAMAAAABAAEAAAAAAAIAAAABAAEAAAAAAAEAAAABAAEAAAAAAAAAAAABAAAAAAD//wUAAAABAAIAAAD//wQAAAABAAEAAAD//wMAAAABAAEAAAD//wIAAAABAAEAAAD//wEAAAABAAEAAAD//wAAAAABAAAAAAD+/wUAAAABAAIAAAD+/wQAAAABAAEAAAD+/wMAAAABAAEAAAD+/wIAAAABAAEAAAD+/wEAAAABAAEAAAD+/wAAAAABAAAAAAD9/wUAAAAAAAIAAAD9/wQAAAAAAAEAAAD9/wMAAAAAAAEAAAD9/wIAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wAAAAAAAAAAAAANAAQAAAACAAIAAAANAAMAAAACAAEAAAANAAIAAAABAAEAAAANAAEAAAABAAEAAAANAAAAAAABAAAAAAAMAAQAAAABAAIAAAAMAAMAAAABAAEAAAAMAAIAAAABAAEAAAAMAAEAAAABAAEAAAAMAAAAAAABAAAAAAALAAQAAAABAAIAAAALAAMAAAABAAEAAAALAAIAAAABAAEAAAALAAEAAAABAAEAAAALAAAAAAABAAAAAAAKAAQAAAABAAIAAAAKAAMAAAABAAEAAAAKAAIAAAABAAEAAAAKAAEAAAABAAEAAAAKAAAAAAABAAAAAAAJAAQAAAABAAIAAAAJAAMAAAABAAEAAAAJAAIAAAABAAEAAAAJAAEAAAABAAEAAAAJAAAAAAABAAAAAAAIAAQAAAABAAIAAAAIAAMAAAABAAEAAAAIAAIAAAABAAEAAAAIAAEAAAABAAEAAAAIAAAAAAABAAAAAAAHAAQAAAABAAIAAAAHAAMAAAABAAEAAAAHAAIAAAABAAEAAAAHAAEAAAABAAEAAAAHAAAAAAABAAEAAAAGAAQAAAABAAIAAAAGAAMAAAABAAEAAAAGAAIAAAABAAEAAAAGAAEAAAABAAEAAAAGAAAAAAABAAEAAAASAAIAAAACAAIAAAASAAEAAAACAAEAAAASAAAAAAACAAEAAAARAAIAAAABAAIAAAARAAEAAAABAAEAAAARAAAAAAABAAEAAAAQAAIAAAABAAIAAAAQAAEAAAABAAEAAAAQAAAAAAABAAEAAAAPAAIAAAABAAIAAAAPAAEAAAABAAEAAAAPAAAAAAABAAEAAAAOAAIAAAABAAIAAAAOAAEAAAABAAEAAAAOAAAAAAABAAEAAAANAPz/AAACAAIAAAANAPv/AAACAAAAAAAMAPz/AAABAAIAAAAMAPv/AAABAAAAAAALAPz/AAABAAIAAAALAPv/AAABAAAAAAAKAPz/AAAAAAIAAAAKAPv/AAAAAAAAAAAHAP//AAABAAAAAAAGAP//AAABAAAAAAAPAP//AAABAAAAAAAOAP//AAABAAAAAAARAP//AAABAAEAAAARAP7/AAABAAAAAAAQAP//AAABAAEAAAAQAP7/AAABAAAAAAASAP//AAACAAEAAAASAP7/AAACAAEAAAASAP3/AAACAAAAAAA=")
 tile_set = SubResource("TileSet_j4d2a")
 
+[node name="DecorationsBack" type="Node2D" parent="TileMapLayer"]
+show_behind_parent = true
+
+[node name="TreeBack" parent="TileMapLayer/DecorationsBack" instance=ExtResource("2_rssyh")]
+position = Vector2(-43, -32)
+
+[node name="TreeBack2" parent="TileMapLayer/DecorationsBack" instance=ExtResource("2_rssyh")]
+position = Vector2(206, -64)
+
+[node name="TreeBack3" parent="TileMapLayer/DecorationsBack" instance=ExtResource("2_rssyh")]
+position = Vector2(433, -190)
+
+[node name="Player" parent="TileMapLayer" instance=ExtResource("2_2vj2h")]
+position = Vector2(240, -56)
+
+[node name="Crab" parent="TileMapLayer" instance=ExtResource("7_ubwgw")]
+position = Vector2(415, -50)
+
+[node name="DecorationsFront" type="Node2D" parent="TileMapLayer"]
+
+[node name="TreeBack" parent="TileMapLayer/DecorationsFront" instance=ExtResource("5_hwp66")]
+position = Vector2(26, -14)
+
+[node name="TreeBack2" parent="TileMapLayer/DecorationsFront" instance=ExtResource("5_hwp66")]
+position = Vector2(141, -14)
+
+[node name="TreeBack3" parent="TileMapLayer/DecorationsFront" instance=ExtResource("5_hwp66")]
+position = Vector2(336, -14)
+
+[node name="TreeBack4" parent="TileMapLayer/DecorationsFront" instance=ExtResource("5_hwp66")]
+position = Vector2(591, -111)
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -173,8 +208,11 @@ position = Vector2(0, -31)
 texture = ExtResource("4_j4d2a")
 centered = false
 
-[node name="Player" parent="." instance=ExtResource("2_2vj2h")]
-position = Vector2(327, 75)
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.2)
+motion_mirroring = Vector2(448, 0)
 
-[node name="Crab" parent="." instance=ExtResource("7_ubwgw")]
-position = Vector2(502, 81)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(82, 117)
+texture = ExtResource("6_vkq25")
+centered = false

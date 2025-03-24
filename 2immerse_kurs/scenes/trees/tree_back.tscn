@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckrc0bsv4g2y2"]
+
+[ext_resource type="Texture2D" uid="uid://bw0cdaopt5q0" path="res://assets/enviro/decorations/Back Palm Tree Regular 01.png" id="1_8tkx0"]
+[ext_resource type="Texture2D" uid="uid://cx3phn6ep0s1w" path="res://assets/enviro/decorations/Back Palm Tree Regular 02.png" id="2_gldrs"]
+[ext_resource type="Texture2D" uid="uid://cfpudx0l6obbi" path="res://assets/enviro/decorations/Back Palm Tree Regular 03.png" id="3_bad27"]
+[ext_resource type="Texture2D" uid="uid://5qwuugy7emuw" path="res://assets/enviro/decorations/Back Palm Tree Regular 04.png" id="4_543bg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mrruo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8tkx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gldrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bad27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_543bg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="TreeBack" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mrruo")
+autoplay = "default"
