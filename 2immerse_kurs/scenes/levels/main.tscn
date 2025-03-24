@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://p4yaus6ilq1x"]
+[gd_scene load_steps=10 format=4 uid="uid://p4yaus6ilq1x"]
 
 [ext_resource type="Texture2D" uid="uid://dlnqpd2tk1jvs" path="res://assets/enviro/tiles/Terrain (32x32).png" id="1_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://te27lbhbk8vy" path="res://scenes/player/player.tscn" id="2_2vj2h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7x4xb1x1rrp8" path="res://assets/enviro/backgrounds/Additional Water.png" id="3_u81e1"]
 [ext_resource type="Texture2D" uid="uid://d0ugy6lvu2l33" path="res://assets/enviro/backgrounds/BG Image.png" id="3_y0acb"]
 [ext_resource type="Texture2D" uid="uid://c6embun731yyt" path="res://assets/enviro/backgrounds/Big Clouds.png" id="4_j4d2a"]
+[ext_resource type="PackedScene" uid="uid://dygwskgsvb6vo" path="res://scenes/crab/crab.tscn" id="7_ubwgw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0acb"]
 texture = ExtResource("1_2vj2h")
@@ -172,4 +173,7 @@ texture = ExtResource("4_j4d2a")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("2_2vj2h")]
-position = Vector2(34, -39)
+position = Vector2(327, 75)
+
+[node name="Crab" parent="." instance=ExtResource("7_ubwgw")]
+position = Vector2(502, 81)
