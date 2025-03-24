@@ -1,15 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://dygwskgsvb6vo"]
+[gd_scene load_steps=19 format=3 uid="uid://dygwskgsvb6vo"]
 
 [ext_resource type="Script" uid="uid://c5foeri66b8p5" path="res://scenes/crab/crab.gd" id="1_0pfnp"]
-[ext_resource type="Texture2D" uid="uid://htov6qfmfniq" path="res://assets/crab/01-Idle/Idle 01.png" id="1_pbs8c"]
-[ext_resource type="Texture2D" uid="uid://bbxp37377ngn" path="res://assets/crab/01-Idle/Idle 02.png" id="2_0pfnp"]
-[ext_resource type="Texture2D" uid="uid://npjwxlxqwh6a" path="res://assets/crab/01-Idle/Idle 03.png" id="3_rjqmw"]
-[ext_resource type="Texture2D" uid="uid://c7uotxa8aqrfo" path="res://assets/crab/01-Idle/Idle 04.png" id="4_5oqol"]
-[ext_resource type="Texture2D" uid="uid://dfviinakt678r" path="res://assets/crab/01-Idle/Idle 05.png" id="5_drpxh"]
-[ext_resource type="Texture2D" uid="uid://c2ebkfae6djcw" path="res://assets/crab/01-Idle/Idle 06.png" id="6_mxkv7"]
-[ext_resource type="Texture2D" uid="uid://cvit5w72eroew" path="res://assets/crab/01-Idle/Idle 07.png" id="7_xas7m"]
-[ext_resource type="Texture2D" uid="uid://ybf68uaeng3a" path="res://assets/crab/01-Idle/Idle 08.png" id="8_erwjg"]
-[ext_resource type="Texture2D" uid="uid://mafx6r4t47pg" path="res://assets/crab/01-Idle/Idle 09.png" id="9_jcmn2"]
+[ext_resource type="Texture2D" uid="uid://cntfsabi44r7k" path="res://assets/crab/07-Attack/Attack 01.png" id="2_mxkv7"]
+[ext_resource type="Texture2D" uid="uid://3wcn5hhmma6v" path="res://assets/crab/07-Attack/Attack 02.png" id="3_xas7m"]
+[ext_resource type="Texture2D" uid="uid://11dhaskirxeb" path="res://assets/crab/07-Attack/Attack 03.png" id="4_erwjg"]
+[ext_resource type="Texture2D" uid="uid://csq58obuvc5t1" path="res://assets/crab/07-Attack/Attack 04.png" id="5_jcmn2"]
+[ext_resource type="Texture2D" uid="uid://cs3xhe37mr45s" path="res://assets/crab/09-Dead Hit/Dead Hit 01.png" id="6_gnick"]
+[ext_resource type="Texture2D" uid="uid://d0putv50ys1pd" path="res://assets/crab/09-Dead Hit/Dead Hit 02.png" id="7_epd8f"]
+[ext_resource type="Texture2D" uid="uid://egltx15y4x4o" path="res://assets/crab/09-Dead Hit/Dead Hit 03.png" id="8_4d8es"]
+[ext_resource type="Texture2D" uid="uid://bisc5fgahh70x" path="res://assets/crab/09-Dead Hit/Dead Hit 04.png" id="9_2txc7"]
 [ext_resource type="Texture2D" uid="uid://cloub4cuscmvv" path="res://assets/crab/02-Run/Run 01.png" id="10_gnick"]
 [ext_resource type="Texture2D" uid="uid://cr4f4fj4dnyt8" path="res://assets/crab/02-Run/Run 02.png" id="11_epd8f"]
 [ext_resource type="Texture2D" uid="uid://r5prft7djbjj" path="res://assets/crab/02-Run/Run 03.png" id="12_4d8es"]
@@ -21,34 +20,36 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_pbs8c")
+"texture": ExtResource("2_mxkv7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_0pfnp")
+"texture": ExtResource("3_xas7m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_rjqmw")
+"texture": ExtResource("4_erwjg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_5oqol")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_drpxh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_mxkv7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_xas7m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_erwjg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_jcmn2")
+"texture": ExtResource("5_jcmn2")
 }],
-"loop": true,
-"name": &"idle",
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gnick")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_epd8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4d8es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2txc7")
+}],
+"loop": false,
+"name": &"death",
 "speed": 10.0
 }, {
 "frames": [{
@@ -82,11 +83,13 @@ height = 34.0
 size = Vector2(40, 20)
 
 [node name="Crab" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_0pfnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ceh4d")
-animation = &"run"
+animation = &"attack"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -102,6 +105,7 @@ target_position = Vector2(20, 0)
 
 [node name="AttackArea2D" type="Area2D" parent="."]
 position = Vector2(0, 3)
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2D"]
 shape = SubResource("RectangleShape2D_0pfnp")

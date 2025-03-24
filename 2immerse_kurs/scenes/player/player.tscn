@@ -1,12 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://te27lbhbk8vy"]
+[gd_scene load_steps=24 format=3 uid="uid://te27lbhbk8vy"]
 
 [ext_resource type="Script" uid="uid://dgonukxfei563" path="res://scenes/player/player.gd" id="1_gmlin"]
 [ext_resource type="Texture2D" uid="uid://xh57imyjhgwj" path="res://assets/capitan/01-Idle/Idle 01.png" id="2_75vfm"]
 [ext_resource type="Texture2D" uid="uid://qyrf76kd5sst" path="res://assets/capitan/04-Fall/Fall 01.png" id="2_myrg7"]
 [ext_resource type="Texture2D" uid="uid://betbeq3oll1lv" path="res://assets/capitan/01-Idle/Idle 02.png" id="3_0owmy"]
+[ext_resource type="Texture2D" uid="uid://dynsi3kdnvv6y" path="res://assets/capitan/06-Hit/Hit 01.png" id="3_8ydkj"]
+[ext_resource type="Texture2D" uid="uid://om3h224kwpt7" path="res://assets/capitan/06-Hit/Hit 02.png" id="4_3j4b4"]
 [ext_resource type="Texture2D" uid="uid://633avvgn1ty6" path="res://assets/capitan/01-Idle/Idle 03.png" id="4_qek5x"]
 [ext_resource type="Texture2D" uid="uid://c35laug325b46" path="res://assets/capitan/01-Idle/Idle 04.png" id="5_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://bdacvvxv3io5s" path="res://assets/capitan/06-Hit/Hit 03.png" id="5_yj68g"]
 [ext_resource type="Texture2D" uid="uid://gip1b1eq1chu" path="res://assets/capitan/01-Idle/Idle 05.png" id="6_h17s1"]
+[ext_resource type="Texture2D" uid="uid://bhaunsbka4u3c" path="res://assets/capitan/06-Hit/Hit 04.png" id="6_ioxgp"]
 [ext_resource type="Texture2D" uid="uid://clfpbpmcnlv4f" path="res://assets/capitan/03-Jump/Jump 01.png" id="7_fcs02"]
 [ext_resource type="Texture2D" uid="uid://c8hsf882u6p6u" path="res://assets/capitan/02-Run/Run 01.png" id="7_fm80t"]
 [ext_resource type="Texture2D" uid="uid://boqkjv8vg7ybq" path="res://assets/capitan/02-Run/Run 02.png" id="8_gx1jg"]
@@ -26,6 +30,23 @@ animations = [{
 "loop": true,
 "name": &"fall",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8ydkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3j4b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yj68g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ioxgp")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -88,14 +109,27 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 height = 24.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ydkj"]
+size = Vector2(8, 6)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_gmlin")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_je7p5")
-animation = &"jump"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dovo2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AttackArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2D"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_8ydkj")
+
+[connection signal="body_entered" from="AttackArea2D" to="." method="_on_attack_area_2d_body_entered"]
