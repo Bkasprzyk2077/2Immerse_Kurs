@@ -1,13 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://te27lbhbk8vy"]
+[gd_scene load_steps=28 format=3 uid="uid://te27lbhbk8vy"]
 
 [ext_resource type="Script" uid="uid://dgonukxfei563" path="res://scenes/player/player.gd" id="1_gmlin"]
 [ext_resource type="Texture2D" uid="uid://xh57imyjhgwj" path="res://assets/capitan/01-Idle/Idle 01.png" id="2_75vfm"]
+[ext_resource type="Texture2D" uid="uid://1ngb60f0n776" path="res://assets/capitan/07-Dead Hit/Dead Hit 01.png" id="2_cnsyf"]
 [ext_resource type="Texture2D" uid="uid://qyrf76kd5sst" path="res://assets/capitan/04-Fall/Fall 01.png" id="2_myrg7"]
 [ext_resource type="Texture2D" uid="uid://betbeq3oll1lv" path="res://assets/capitan/01-Idle/Idle 02.png" id="3_0owmy"]
+[ext_resource type="Texture2D" uid="uid://br84kjwshqafh" path="res://assets/capitan/07-Dead Hit/Dead Hit 02.png" id="3_007i1"]
 [ext_resource type="Texture2D" uid="uid://dynsi3kdnvv6y" path="res://assets/capitan/06-Hit/Hit 01.png" id="3_8ydkj"]
 [ext_resource type="Texture2D" uid="uid://om3h224kwpt7" path="res://assets/capitan/06-Hit/Hit 02.png" id="4_3j4b4"]
+[ext_resource type="Texture2D" uid="uid://dfbjcbu4otrct" path="res://assets/capitan/07-Dead Hit/Dead Hit 03.png" id="4_6cv16"]
 [ext_resource type="Texture2D" uid="uid://633avvgn1ty6" path="res://assets/capitan/01-Idle/Idle 03.png" id="4_qek5x"]
 [ext_resource type="Texture2D" uid="uid://c35laug325b46" path="res://assets/capitan/01-Idle/Idle 04.png" id="5_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://bfcsqfa8ltscr" path="res://assets/capitan/07-Dead Hit/Dead Hit 04.png" id="5_j4nxn"]
 [ext_resource type="Texture2D" uid="uid://bdacvvxv3io5s" path="res://assets/capitan/06-Hit/Hit 03.png" id="5_yj68g"]
 [ext_resource type="Texture2D" uid="uid://gip1b1eq1chu" path="res://assets/capitan/01-Idle/Idle 05.png" id="6_h17s1"]
 [ext_resource type="Texture2D" uid="uid://bhaunsbka4u3c" path="res://assets/capitan/06-Hit/Hit 04.png" id="6_ioxgp"]
@@ -23,6 +27,23 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_je7p5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cnsyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_007i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6cv16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j4nxn")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_myrg7")
@@ -112,12 +133,12 @@ height = 24.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ydkj"]
 size = Vector2(8, 6)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_gmlin")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_je7p5")
-animation = &"idle"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dovo2")

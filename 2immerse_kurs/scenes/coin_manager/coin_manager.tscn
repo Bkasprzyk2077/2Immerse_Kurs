@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qnsj4tjqusrd"]
+
+[ext_resource type="Script" uid="uid://fffbj5jskafk" path="res://scenes/coin_manager/coin_manager.gd" id="1_gvee5"]
+
+[node name="CoinManager" type="Node"]
+script = ExtResource("1_gvee5")
